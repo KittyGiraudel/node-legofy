@@ -1,5 +1,4 @@
 import fs from 'fs'
-import promisify from 'promisify-node'
 import Canvas from 'canvas'
 
 const Image = Canvas.Image;
