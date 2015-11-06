@@ -2,12 +2,19 @@
 
 This project is a Node.js port of [Legofy](https://github.com/JuanPotato/Legofy) from [Juan Potato](https://github.com/JuanPotato). Full feature parity is not ensured.
 
+/!\ This project is not released yet on `npm`, so you would have to fork it in order to use it.
+
 ## Usage
 
-This project is not released yet on `npm`, so you would have to fork it in order to use it.
+The script should create a new file named after the first one, knowing that:
+
+* `.lego` will be appended before the extension;
+* the file will be converted to `png`, no matter if another extension at first.
 
 ```js
-./bin/node-legofy <input> <output>
+# e.g. ./bin/node-legofy ./images/sample.jpg
+# will create `./images/sample.lego.png
+./bin/node-legofy <input>
 ```
 
 ## Credits
