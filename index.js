@@ -22,7 +22,48 @@ function writeImage (canvas, destination, callback) {
 
   return stream
     .on('data', chunk => out.write(chunk))
+    .on('error', error => console.log(error))
     .on('end', callback)
+}
+
+function addBrick (canvas, brick, x, y) {
+  const ctx = canvas.getContext('2d')
+
+  const startX = x * brick.width
+  const startY = y * brick.height
+  const pixelInterval = 5
+
+  let data = ctx.getImageData(startX, startY, brick.width, brick.height).data
+  let i = -4
+  let count = 0
+  let rgb = { r: null, g: null, b: null }
+
+  while ((i += pixelInterval * 4) < data.length) {
+    count++
+    rgb.r += data[i]
+    rgb.g += data[i + 1]
+    rgb.b += data[i + 2]
+  }
+  
+  // floor the average values to give correct rgb values (ie: round number values)
+  rgb = {
+    r: Math.floor(rgb.r / count),
+    g: Math.floor(rgb.g / count),
+    b: Math.floor(rgb.b / count)
+  }
+
+  ctx.drawImage(brick, startX, startY)
+
+  let pixels = ctx.getImageData(startX, startY, brick.width, brick.height)
+  data = pixels.data
+
+  for (let i = 0; i < data.length; i += 4) {
+      data[i]     = data[i]     + rgb.r;  /// add R
+      data[i + 1] = data[i + 1] + rgb.g;  /// add G
+      data[i + 2] = data[i + 2] + rgb.b;  /// add B
+  }
+
+  ctx.putImageData(pixels, startX, startY);
 }
 
 /**
@@ -35,10 +76,19 @@ function updateImage (canvas, image) {
   let brick = new Image
   brick.src = BRICK_SRC
 
-  canvas.width = (Math.round(image.width / brick.width) * brick.width)
-  canvas.height = (Math.round(image.height / brick.height) * brick.height)
+  let countX = Math.round(image.width / brick.width)
+  let countY = Math.round(image.height / brick.height)
+
+  canvas.width = (countX * brick.width)
+  canvas.height = (countY * brick.height)
 
   ctx.drawImage(image, 0, 0)
+
+  for (let i = 0; i < countX; i++) {
+    for (let j = 0; j < countY; j++) {
+      addBrick(canvas, brick, i, j)
+    }
+  }
 
   return image
 }
