@@ -1,12 +1,18 @@
 import Legofy from './lib';
 
 (function () {
-  const lego = new Legofy({
+  const time = new Date().valueOf();
+  let options = {
     input: './images/sample.jpg',
     output: './images/sample.lego.png',
-    callback: () => console.log('Over.'),
     init: false
-  });
+  };
+
+  options.callback = () => {
+    console.log(`File ${options.output} generated in ${(new Date().valueOf() - time) / 1000} seconds.`);
+  };
+
+  const lego = new Legofy(options);
 
   lego.initialize();
 }());
