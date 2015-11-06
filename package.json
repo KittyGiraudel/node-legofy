@@ -23,7 +23,7 @@
     "dist": "babel ./lib --out-dir ./dist",
     "lint": "semistandard",
     "demo": "rm -f ./images/sample.lego.png && ./bin/node-legofy ./images/sample.jpg",
-    "test": "mocha ./test/**/*.js --require ./babelhook.js"
+    "test": "mocha ./test/**/*.js --compilers js:babel-core/register"
   },
   "semistandard": {
     "parser": "babel-eslint",
@@ -42,7 +42,6 @@
     ]
   },
   "devDependencies": {
-    "babel-core": "^6.1.2",
     "babel-eslint": "^4.1.4",
     "semistandard": "^7.0.2"
   }
