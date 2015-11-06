@@ -17,6 +17,12 @@ If `<output>` is not specified, the script should create a new file named after 
 $ ./bin/node-legofy ./images/sample.jpg
 ```
 
+## Example
+
+![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.jpg)
+
+![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.lego.jpg)
+
 ## Credits
 
 * [Juan Potato](https://github.com/JuanPotato) for the original Python library
