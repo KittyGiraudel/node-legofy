@@ -10,13 +10,10 @@ This project is a Node.js port of [Legofy](https://github.com/JuanPotato/Legofy)
 $ ./bin/node-legofy <input> [<output>]
 ```
 
-If `<output>` is not specified, the script should create a new file named after the first one, knowing that:
-
-* `.lego` will be appended before the extension;
-* the file will be converted to `png`, no matter if another extension at first.
+If `<output>` is not specified, the script should create a new file named after the first one, knowing that `.lego` will be appended before the extension.
 
 ```sh
-# Will create `./images/sample.lego.png`
+# Will create `./images/sample.lego.jpg`
 $ ./bin/node-legofy ./images/sample.jpg
 ```
 

@@ -22,7 +22,7 @@
     "start": "npm run dist && npm run test",
     "dist": "babel ./lib --out-dir ./dist",
     "lint": "semistandard",
-    "test": "rm -f ./images/sample.lego.png && ./bin/node-legofy ./images/sample.jpg ./images/sample.lego.png"
+    "test": "rm -f ./images/sample.lego.png && ./bin/node-legofy ./images/sample.jpg"
   },
   "semistandard": {
     "parser": "babel-eslint",
