@@ -1,9 +1,7 @@
 {
   "dependencies": {
-    "canvas": "^1.3.0",
-    "color": "^0.10.1",
-    "jimp": "^0.2.14",
-    "promisify-node": "^0.2.1"
+    "babel-preset-es2015": "^6.1.2",
+    "canvas": "^1.3.0"
   },
   "scripts": {
     "start": "babel-node index.js"
