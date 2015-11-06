@@ -21,9 +21,22 @@
   "scripts": {
     "start": "npm run dist && npm run test",
     "dist": "babel ./lib --out-dir ./dist",
+    "lint": "semistandard",
     "test": "rm -f ./images/sample.lego.png && ./bin/node-legofy ./images/sample.jpg ./images/sample.lego.png"
   },
+  "semistandard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "dist"
+    ]
+  },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^4.1.4",
+    "semistandard": "^7.0.2"
   }
 }
