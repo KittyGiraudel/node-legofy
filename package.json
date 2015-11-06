@@ -21,7 +21,7 @@
   "scripts": {
     "start": "npm run dist && npm run test",
     "dist": "babel ./lib --out-dir ./dist",
-    "test": "./bin/node-legofy ./images/sample.jpg ./images/sample.lego.png"
+    "test": "rm -f ./images/sample.lego.png && ./bin/node-legofy ./images/sample.jpg ./images/sample.lego.png"
   },
   "babel": {
     "presets": ["es2015"]
