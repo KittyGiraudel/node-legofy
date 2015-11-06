@@ -26,44 +26,70 @@ function writeImage (canvas, destination, callback) {
     .on('end', callback);
 }
 
-function addBrick (canvas, brick, x, y) {
+/**
+ * Get the average pixel color in the area defined by `x`, `y`, `x + width` and
+ * `y + height`. Returns an object containing `red`, `green` and `blue` channels.
+ */
+function getAverageColor (canvas, x, y, width, height) {
   const ctx = canvas.getContext('2d');
-
-  const startX = x * brick.width;
-  const startY = y * brick.height;
   const pixelInterval = 5;
 
-  let data = ctx.getImageData(startX, startY, brick.width, brick.height).data;
+  let data = ctx.getImageData(x, y, width, height).data;
   let i = -4;
   let count = 0;
-  let rgb = { r: null, g: null, b: null };
+  let rgb = {
+    red: null,
+    green: null,
+    blue: null
+  };
 
   while ((i += pixelInterval * 4) < data.length) {
     count++;
-    rgb.r += data[i];
-    rgb.g += data[i + 1];
-    rgb.b += data[i + 2];
+    rgb.red += data[i];
+    rgb.green += data[i + 1];
+    rgb.blue += data[i + 2];
   }
 
-  // floor the average values to give correct rgb values (ie: round number values)
-  rgb = {
-    r: Math.floor(rgb.r / count),
-    g: Math.floor(rgb.g / count),
-    b: Math.floor(rgb.b / count)
+  return {
+    red: Math.floor(rgb.red / count),
+    green: Math.floor(rgb.green / count),
+    blue: Math.floor(rgb.blue / count)
   };
+}
 
-  ctx.drawImage(brick, startX, startY);
+/**
+ * Update a brick color based on the average color of the image underneath.
+ */
+function updateBrickColor (canvas, x, y, width, height, averageColor) {
+  const ctx = canvas.getContext('2d');
 
-  let pixels = ctx.getImageData(startX, startY, brick.width, brick.height);
-  data = pixels.data;
+  let pixels = ctx.getImageData(x, y, width, height);
+  let data = pixels.data;
 
   for (let i = 0; i < data.length; i += 4) {
-    data[i] = data[i] + rgb.r;
-    data[i + 1] = data[i + 1] + rgb.g;
-    data[i + 2] = data[i + 2] + rgb.b;
+    data[i] = data[i] + averageColor.red;
+    data[i + 1] = data[i + 1] + averageColor.green;
+    data[i + 2] = data[i + 2] + averageColor.blue;
   }
 
-  ctx.putImageData(pixels, startX, startY);
+  ctx.putImageData(pixels, x, y);
+}
+
+/**
+ * Add a brick to the image
+ */
+function addBrick (canvas, brick, x, y) {
+  const startX = x * brick.width;
+  const startY = y * brick.height;
+  const averageColor = getAverageColor(canvas, startX, startY, brick.width, brick.height);
+
+  // Draw brick
+  canvas.getContext('2d').drawImage(brick, startX, startY);
+
+  // Update its color
+  updateBrickColor(canvas, startX, startY, brick.width, brick.height, averageColor);
+
+  return brick;
 }
 
 /**
@@ -71,25 +97,30 @@ function addBrick (canvas, brick, x, y) {
  */
 function updateImage (canvas, image) {
   const BRICK_SRC = './images/brick.png';
+  const ctx = canvas.getContext('2d');
 
-  let ctx = canvas.getContext('2d');
   let brick = new Image();
   brick.src = BRICK_SRC;
 
+  // Compute a round number of bricks on both axis
   let countX = Math.round(image.width / brick.width);
   let countY = Math.round(image.height / brick.height);
 
+  // Resize the canvas to make it possible to fit a round number of bricks
   canvas.width = (countX * brick.width);
   canvas.height = (countY * brick.height);
 
+  // Draw the image in canvas
   ctx.drawImage(image, 0, 0);
 
-  for (let i = 0; i < countX; i++) {
-    for (let j = 0; j < countY; j++) {
-      addBrick(canvas, brick, i, j);
+  // Add bricks on top of the image
+  for (let x = 0; x < countX; x++) {
+    for (let y = 0; y < countY; y++) {
+      addBrick(canvas, brick, x, y);
     }
   }
 
+  // Return image
   return image;
 }
 
@@ -98,7 +129,12 @@ function updateImage (canvas, image) {
   const OUTPUT_SRC = './images/sample.lego.png';
   const canvas = new Canvas(400, 400);
 
+  // Load the image
   let image = loadImage(canvas, IMAGE_SRC);
+
+  // Update the image
   updateImage(canvas, image);
+
+  // Write image to new file
   writeImage(canvas, OUTPUT_SRC, () => console.log('Over.'));
 }());
