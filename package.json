@@ -1,14 +1,29 @@
 {
+  "name": "node-legofy",
+  "version": "0.1.0",
+  "license": "MIT",
+  "homepage": "https://github.com/HugoGiraudel/node-legofy",
+  "author": "Hugo Giraudel",
+  "repository": {
+    "git": "https://github.com/HugoGiraudel/node-legofy"
+  },
+  "bugs": {
+    "url": "https://github.com/HugoGiraudel/node-legofy/issues"
+  },
+  "bin": {
+    "node-legofy": "./bin/node-legofy"
+  },
   "dependencies": {
     "babel-preset-es2015": "^6.1.2",
-    "canvas": "^1.3.0"
+    "canvas": "^1.3.0",
+    "docopt": "^0.6.2"
   },
   "scripts": {
-    "start": "babel-node index.js"
+    "start": "npm run dist && npm run test",
+    "dist": "babel ./lib --out-dir ./dist",
+    "test": "./bin/node-legofy ./images/sample.jpg ./images/sample.lego.png"
   },
   "babel": {
-    "presets": [
-      "es2015"
-    ]
+    "presets": ["es2015"]
   }
 }
