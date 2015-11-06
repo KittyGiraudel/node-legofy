@@ -22,12 +22,18 @@
     "start": "npm run dist && npm run test",
     "dist": "babel ./lib --out-dir ./dist",
     "lint": "semistandard",
-    "test": "rm -f ./images/sample.lego.png && ./bin/node-legofy ./images/sample.jpg"
+    "demo": "rm -f ./images/sample.lego.png && ./bin/node-legofy ./images/sample.jpg",
+    "test": "mocha ./test/**/*.js --require ./babelhook.js"
   },
   "semistandard": {
     "parser": "babel-eslint",
     "ignore": [
       "dist"
+    ],
+    "globals": [
+      "describe",
+      "it",
+      "afterEach"
     ]
   },
   "babel": {
@@ -36,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "babel-core": "^6.1.2",
     "babel-eslint": "^4.1.4",
     "semistandard": "^7.0.2"
   }
