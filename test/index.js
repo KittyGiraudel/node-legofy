@@ -1,48 +1,24 @@
-import Legofy from '../lib';
-import assert from 'assert';
+import legofy from '../lib'
+import assert from 'assert'
+import fs from 'fs'
+import pipe from 'multipipe'
+import digest from 'digest-stream'
+
+const expectedHash = '4fc1559b5f1f179c2e5dd49e2cb08cfa7eb84c96'
 
 describe('The Legofy module', () => {
-  const options = { input: './images/sample.jpg' };
+  let hash
 
-  it('should have sentitive defaults', () => {
-    const lego = new Legofy(options);
+  before(function (done) {
+    this.timeout(5000)
 
-    assert.equal(typeof lego.options, 'object');
-    assert.equal(lego.options.input, options.input);
-    assert.equal(typeof lego.options.callback, 'function');
-    assert.equal(typeof lego.options.manual, 'undefined');
-    assert.equal(lego.options.manual, undefined);
-  });
+    pipe(
+      fs.createReadStream('images/sample.jpg'),
+      legofy({ format: 'png' }), // PNG to be deterministic
+      digest('sha1', 'hex', _hash => hash = _hash),
+      done)
+      .resume()
+  })
 
-  it('should throw an error if input is empty or non string', () => {
-    assert.throws(() => { new Legofy(); }, Error);
-    assert.throws(() => { new Legofy({ input: 42 }); }, Error);
-  });
-
-  it('should not run `initialize(..)` on `manual` mode', () => {
-    let lego = new Legofy({ input: options.input, manual: true });
-    assert.equal(typeof lego.brick, 'undefined');
-  });
-
-  it('should do a lot of things in the `initialize(..)` method', () => {
-    let lego = new Legofy({ input: options.input });
-    assert.equal(typeof lego.brick, 'object');
-    assert.equal(typeof lego.image, 'object');
-    assert.equal(lego.image.src, options.input);
-  });
-
-  it('should create a canvas sized after the image', () => {
-    let lego = new Legofy({ input: options.input, manual: true }).initialize();
-    assert.equal(lego.ctx, lego.canvas.getContext('2d'));
-    assert.equal(typeof lego.canvas, 'object');
-    assert.equal(lego.canvas.width, lego.image.width);
-    assert.equal(lego.canvas.height, lego.image.height);
-  });
-
-  it('should create a secondary canvas sized after a brick', () => {
-    let lego = new Legofy({ input: options.input });
-    assert.equal(typeof lego.offcanvas, 'object');
-    assert.equal(lego.offcanvas.width, lego.brick.width);
-    assert.equal(lego.offcanvas.height, lego.brick.height);
-  });
-});
+  it('should equal expected hash', () => assert.equal(hash, expectedHash))
+})
