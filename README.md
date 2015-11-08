@@ -20,6 +20,23 @@ inputStream
   .pipe(outputStream)
 ```
 
+## Usage (Vinyl/Gulp)
+
+Using the [vinyl-transform] package to adapt a Node.js transform stream
+to a Vinyl stream.
+
+[vinyl-transform]: https://www.npmjs.com/package/vinyl-transform
+
+```js
+import fs from 'vinyl-fs'
+import transform from 'vinyl-transform'
+import legofy from 'legofy'
+
+fs.src('images/*.png')
+  .pipe(transform(legofy))
+  .pipe(fs.dest('dest/'))
+```
+
 ## Example
 
 ![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.png)
