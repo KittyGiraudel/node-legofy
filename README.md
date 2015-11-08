@@ -13,7 +13,7 @@ bin/legofy < images/sample.png > images/sample.lego.png
 ## Usage (Node)
 
 ```js
-import legofy from 'legofy'
+import legofy from 'node-legofy'
 
 inputStream
   .pipe(legofy())
@@ -30,7 +30,7 @@ to a Vinyl stream.
 ```js
 import fs from 'vinyl-fs'
 import transform from 'vinyl-transform'
-import legofy from 'legofy'
+import legofy from 'node-legofy'
 
 fs.src('images/*.png')
   .pipe(transform(legofy))
