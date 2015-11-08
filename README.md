@@ -7,7 +7,7 @@ This project is a Node.js port of [Legofy](https://github.com/JuanPotato/Legofy)
 ## Usage (CLI)
 
 ```sh
-$ bin/node-legofy < images/sample.png > images/sample.lego.png
+$ bin/legofy < images/sample.png > images/sample.lego.png
 ```
 
 ## Usage (Node)
