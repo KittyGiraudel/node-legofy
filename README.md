@@ -7,7 +7,7 @@ This project is a Node.js port of [Legofy](https://github.com/JuanPotato/Legofy)
 ## Usage (CLI)
 
 ```sh
-$ bin/node-legofy < images/sample.jpg > images/sample.lego.jpg
+$ bin/node-legofy < images/sample.png > images/sample.lego.png
 ```
 
 ## Usage (Node)
@@ -20,9 +20,9 @@ inputStream
 
 ## Example
 
-![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.jpg)
+![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.png)
 
-![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.lego.jpg)
+![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.lego.png)
 
 ## Credits
 
