@@ -1,8 +1,8 @@
 # node-legofy
 
-This project is a Node.js port of [Legofy](https://github.com/JuanPotato/Legofy) from [Juan Potato](https://github.com/JuanPotato). Full feature parity is not ensured.
+*This project is a Node.js port of the [Legofy](https://github.com/JuanPotato/Legofy) Python library from [Juan Potato](https://github.com/JuanPotato). Full feature and API parity is not ensured.*
 
-**/!\ This project is not released yet on `npm`, so you would have to fork it in order to use it.**
+LEGOfy aims at converting an image (no GIF support) into a mosaic of 1&times;1 colored bricks. It is useless but hell a lot of fun. See the [example](#example) for, y’know, an example.
 
 ## Usage (CLI)
 
