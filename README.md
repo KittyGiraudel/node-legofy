@@ -13,6 +13,8 @@ bin/legofy < images/sample.png > images/sample.lego.png
 ## Usage (Node)
 
 ```js
+import legofy from 'legofy'
+
 inputStream
   .pipe(legofy())
   .pipe(outputStream)
