@@ -4,7 +4,7 @@ import fs from 'fs'
 import pipe from 'multipipe'
 import digest from 'digest-stream'
 
-const expectedHash = '4fc1559b5f1f179c2e5dd49e2cb08cfa7eb84c96'
+const expectedHash = 'f47035bce47c2fe445c9a1cbc6c038d408f54e31'
 
 describe('The Legofy module', () => {
   let hash
@@ -13,7 +13,7 @@ describe('The Legofy module', () => {
     this.timeout(5000)
 
     pipe(
-      fs.createReadStream('images/sample.jpg'),
+      fs.createReadStream('images/sample.png'),
       legofy({ format: 'png' }), // PNG to be deterministic
       digest('sha1', 'hex', _hash => hash = _hash),
       done)
