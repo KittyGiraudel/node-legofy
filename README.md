@@ -7,7 +7,7 @@ LEGOfy aims at converting an image (no GIF support) into a mosaic of 1&times;1 c
 ## Usage (CLI)
 
 ```sh
-$ bin/legofy < images/sample.png > images/sample.lego.png
+bin/legofy < images/sample.png > images/sample.lego.png
 ```
 
 ## Usage (Node)
