@@ -20,7 +20,7 @@
     "url": "https://github.com/HugoGiraudel/node-legofy/issues"
   },
   "bin": {
-    "legofy": "./bin/legofy"
+    "legofy": "bin/legofy"
   },
   "dependencies": {
     "canvas": "^1.3.0",
