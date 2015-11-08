@@ -3,7 +3,16 @@
   "version": "0.1.0",
   "license": "MIT",
   "homepage": "https://github.com/HugoGiraudel/node-legofy",
-  "author": "Hugo Giraudel",
+  "author": {
+    "name": "Hugo Giraudel",
+    "url": "http://hugogiraudel.com"
+  },
+  "contributors": [
+    {
+      "name": "Valérian Galliat",
+      "url": "https://val.codejam.info"
+    }
+  ],
   "repository": {
     "git": "https://github.com/HugoGiraudel/node-legofy"
   },
