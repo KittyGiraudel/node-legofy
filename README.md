@@ -29,7 +29,6 @@ Name | Description
 The options taking a quality argument can be one of `fast`, `good`, `best`,
 and `nearest`.
 
-
 <!-- END USAGE -->
 
 ## Usage (Node)
