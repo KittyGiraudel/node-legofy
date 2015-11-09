@@ -35,7 +35,8 @@
     "dist": "babel lib --out-dir dist",
     "lint": "standard",
     "prepublish": "npm run lint && npm run dist && npm run test",
-    "test": "mocha test --compilers js:babel-core/register"
+    "test": "mocha test --compilers js:babel-core/register",
+    "readme": "tools/readme"
   },
   "standard": {
     "parser": "babel-eslint",
@@ -58,6 +59,7 @@
     "babel-eslint": "^4.1.4",
     "babel-preset-es2015": "^6.1.2",
     "digest-stream": "^0.2.2",
+    "help2md": "^1.0.6",
     "mocha": "^2.3.3",
     "standard": "^5.3.1"
   }

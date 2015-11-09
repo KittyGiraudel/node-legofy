@@ -6,9 +6,31 @@ LEGOfy aims at converting an image (no GIF support) into a mosaic of 1&times;1 c
 
 ## Usage (CLI)
 
-```sh
-bin/legofy < images/sample.png > images/sample.lego.png
+<!-- BEGIN USAGE -->
+
+LEGOfy input image from stdin and send output to stdout.
+
 ```
+legofy [options]
+```
+
+### Options
+
+Name | Description
+---- | -----------
+`-h, --help` | Bring help.
+`-v, --version` | Show version.
+`-f, --format=<format>` | Set output format (`png` or `jpeg`) [default: jpeg].
+`-q, --quality=<quality>` | Preset for the performance/quality options [default: good].
+`--pixel-interval=<interval>` | Set pixel interval for average color computation (higher means faster but less accurate).
+`--pattern-quality=<quality>` | Canvas pattern quality.
+`--filter-quality=<quality>` | Canvas filter quality (same values as pattern quality).
+
+The options taking a quality argument can be one of `fast`, `good`, `best`,
+and `nearest`.
+
+
+<!-- END USAGE -->
 
 ## Usage (Node)
 
