@@ -31,6 +31,12 @@ and `nearest`.
 
 <!-- END USAGE -->
 
+Example:
+
+```
+legofy < images/sample.jpg > images/sample.lego.jpg
+```
+
 ## Usage (Node)
 
 ```js
