@@ -14,7 +14,7 @@ describe('The Legofy module', () => {
 
     pipe(
       fs.createReadStream('images/sample.png'),
-      legofy({ format: 'png' }), // PNG to be deterministic
+      legofy({ format: 'png', pixelInterval: 1 }), // PNG to be deterministic
       digest('sha1', 'hex', _hash => hash = _hash),
       done)
       .resume()

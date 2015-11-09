@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+filter() {
+  sed '/^Usage$/,/^$/d'
+}
+
+bin/legofy --help | help2md-tags README.md | filter > README.md.tmp
+mv README.md.tmp README.md
