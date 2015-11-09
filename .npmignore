@@ -1,0 +1,6 @@
+node_modules
+images
+lib
+test
+tools
+*.log
