@@ -34,7 +34,7 @@ and `nearest`.
 Example:
 
 ```
-legofy < images/sample.jpg > images/sample.lego.jpg
+legofy < images/benchmark/sample-1.jpg > images/benchmark/sample-1.lego.jpg
 ```
 
 ## Usage (Node)
@@ -69,6 +69,12 @@ fs.src('images/*.png')
 ![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/benchmark/sample-1.jpg)
 
 ![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/benchmark/sample-1.lego.jpg)
+
+## Benchmark
+
+```
+npm run benchmark
+```
 
 ## Credits
 
