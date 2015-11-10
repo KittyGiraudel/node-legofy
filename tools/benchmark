@@ -1,30 +1,26 @@
-#!/bin/bash
+#!/bin/sh -e
 
-LEGOFY=$(pwd)/bin/legofy;
-PATH_IMAGES=$(pwd)/images/benchmark/;
+readonly PROGDIR=$(dirname "$0")
+LEGOFY=$PROGDIR/../bin/legofy
+PATH_IMAGES=$PROGDIR/../images/benchmark
 
 benchmark() {
-  local flags=$@;
-
-  # Default arguments
-  if [[  $flags = '' ]]; then
-    flags='--filter-quality=80 --pattern-quality=80 --quality=good'
-  fi
+  default_flags='--quality=good'
 
   # Loop for each images
-  for img in $(ls $PATH_IMAGES)
+  for img in $PATH_IMAGES/*
   do
-    echo 'Build opt ' $flags ' image for: '$img
-    $LEGOFY < $PATH_IMAGES$img > /dev/null $flags
+    echo "Build opt ${@:-$default_flags} image for: $img"
+    $LEGOFY < $img > /dev/null "${@:-$default_flags}"
     echo ''
   done
 }
 
 # Start benchmark for each images from images/benchmark
-# You can add as many argument you want, ex:
-# ./benchmark --pattern-quality=80
-# ./benchmark --filter-quality=80
-# ./benchmark --quality=good
-# ./benchmark --filter-quality=80 --pattern-quality=80 --quality=good
+# You can add as many argument you want, e.g.:
+# ./tools/benchmark --pattern-quality=80
+# ./tools/benchmark --filter-quality=80
+# ./tools/benchmark --quality=good
+# ./tools/benchmark --filter-quality=80 --pattern-quality=80 --quality=good
 
 benchmark $@
