@@ -6,8 +6,8 @@ LEGOfy aims at converting an image (no GIF support) into a mosaic of 1&times;1 c
 
 ## Installation
 
-```console
-$ npm install -g node-legofy
+```sh
+npm install -g node-legofy
 ```
 
 ## Usage (CLI)
