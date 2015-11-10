@@ -4,6 +4,12 @@
 
 LEGOfy aims at converting an image (no GIF support) into a mosaic of 1&times;1 colored bricks. It is useless but hell a lot of fun. See the [example](#example) for, y’know, an example.
 
+## Installation
+
+```console
+$ npm install -g node-legofy
+```
+
 ## Usage (CLI)
 
 <!-- BEGIN USAGE -->
