@@ -78,16 +78,16 @@ fs.src('images/*.png')
 
 ## Troubleshooting
 
-On Mac OS X, there is an installation issue with `cairo` not being found. In this case, you can easily install it through homebrew:
+On Mac OS X, there is an installation issue with `cairo` not being found. In this case, you can easily install all [`node-canvas` module dependencies](https://github.com/Automattic/node-canvas#installation) through Homebrew:
 
-```
-brew install cairo
+```sh
+brew install pkg-config cairo libpng jpeg giflib
 ```
 
-If you encounter a further `cairo` issue with `pkg-config`, install `pkg-config` through homebrew:
+And install Xcode Command Line Tools if you didn’t do it before:
 
-```
-brew install pkg-config
+```sh
+xcode-select --install
 ```
 
 ## Benchmark
