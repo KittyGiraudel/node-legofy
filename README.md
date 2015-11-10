@@ -4,6 +4,15 @@
 
 LEGOfy aims at converting an image (no GIF support) into a mosaic of 1&times;1 colored bricks. It is useless but hell a lot of fun. See the [example](#example) for, y’know, an example.
 
+* [Installation](#installation)
+* [Usage (CLI)](#usage-cli)
+* [Usage (Node)](#usage-node)
+* [Usage (Vinyl/Gulp)](#usage-vinylgulp)
+* [Example](#example)
+* [Troubleshooting](#troubleshooting)
+* [Benchmark](#benchmark)
+* [Credits](#credits)
+
 ## Installation
 
 ```sh
