@@ -76,6 +76,14 @@ fs.src('images/*.png')
 
 ![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/benchmark/sample-1.lego.jpg)
 
+## Troubleshooting
+
+On Mac OS X, there is an installation issue with `cairo` not being found. In this case, you can easily install it through homebrew:
+
+```js
+brew install cairo
+```
+
 ## Benchmark
 
 ```
