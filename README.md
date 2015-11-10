@@ -66,9 +66,9 @@ fs.src('images/*.png')
 
 ## Example
 
-![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.png)
+![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/benchmark/sample-1.jpg)
 
-![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/sample.lego.png)
+![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/benchmark/sample-1.lego.jpg)
 
 ## Credits
 
