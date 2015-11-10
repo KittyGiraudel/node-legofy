@@ -7,6 +7,10 @@
     "name": "Hugo Giraudel",
     "url": "http://hugogiraudel.com"
   },
+  "keywords": [
+    "lego",
+    "legofy"
+  ],
   "contributors": [
     {
       "name": "Valérian Galliat",
