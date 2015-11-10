@@ -80,8 +80,14 @@ fs.src('images/*.png')
 
 On Mac OS X, there is an installation issue with `cairo` not being found. In this case, you can easily install it through homebrew:
 
-```js
+```
 brew install cairo
+```
+
+If you encounter a further `cairo` issue with `pkg-config`, install `pkg-config` through homebrew:
+
+```
+brew install pkg-config
 ```
 
 ## Benchmark
