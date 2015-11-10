@@ -5,22 +5,17 @@ LEGOFY=$PROGDIR/../bin/legofy
 PATH_IMAGES=$PROGDIR/../images/benchmark
 
 benchmark() {
-  default_flags='--quality=good'
-
-  # Loop for each images
-  for img in $PATH_IMAGES/*
-  do
-    echo "Build opt ${@:-$default_flags} image for: $img"
-    $LEGOFY < $img > /dev/null "${@:-$default_flags}"
-    echo ''
+  for img in $PATH_IMAGES/*; do
+    echo "Build opt $@ image for: $img"
+    $LEGOFY "$@" < $img > /dev/null
   done
 }
 
 # Start benchmark for each images from images/benchmark
 # You can add as many argument you want, e.g.:
-# ./tools/benchmark --pattern-quality=80
-# ./tools/benchmark --filter-quality=80
+# ./tools/benchmark --pattern-quality=best
+# ./tools/benchmark --filter-quality=fast
 # ./tools/benchmark --quality=good
-# ./tools/benchmark --filter-quality=80 --pattern-quality=80 --quality=good
+# ./tools/benchmark --quality=good --filter-quality=nearest --pattern-quality=nearest
 
 benchmark $@
