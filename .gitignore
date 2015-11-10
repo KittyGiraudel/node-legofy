@@ -1,5 +1,5 @@
 node_modules
 *.lego.*
-!sample.lego.*
+!sample-1.lego.*
 dist
 *.log
