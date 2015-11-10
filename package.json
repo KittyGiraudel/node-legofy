@@ -31,7 +31,7 @@
     "readable-stream": "^2.0.4"
   },
   "scripts": {
-    "sample": "bin/legofy < images/sample.png > images/sample.lego.png",
+    "benchmark": "tools/benchmark",
     "dist": "babel lib --out-dir dist",
     "lint": "standard",
     "prepublish": "npm run lint && npm run dist && npm run test",
