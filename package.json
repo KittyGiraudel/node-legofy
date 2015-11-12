@@ -1,30 +1,36 @@
 {
   "name": "node-legofy",
   "version": "0.1.5",
-  "license": "MIT",
+  "description": "Node.js version of Legofy",
+  "keywords": ["lego", "legofy"],
   "homepage": "https://github.com/HugoGiraudel/node-legofy",
+  "bugs": {
+    "url": "https://github.com/HugoGiraudel/node-legofy/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Hugo Giraudel",
     "url": "http://hugogiraudel.com"
   },
-  "keywords": [
-    "lego",
-    "legofy"
-  ],
   "contributors": [
     {
       "name": "Valérian Galliat",
       "url": "https://val.codejam.info"
     }
   ],
-  "repository": {
-    "git": "https://github.com/HugoGiraudel/node-legofy"
-  },
-  "bugs": {
-    "url": "https://github.com/HugoGiraudel/node-legofy/issues"
-  },
+  "main": "lib",
+  "jsnext:main": "src",
   "bin": {
     "legofy": "bin/legofy"
+  },
+  "repository": "HugoGiraudel/node-legofy",
+  "scripts": {
+    "benchmark": "tools/benchmark",
+    "build": "babel src --out-dir lib",
+    "lint": "standard",
+    "prepublish": "npm run test",
+    "readme": "tools/readme",
+    "test": "npm run lint && npm run build && mocha test --compilers js:babel-core/register"
   },
   "dependencies": {
     "canvas": "^1.3.0",
@@ -33,30 +39,6 @@
     "duplexer": "^0.1.1",
     "multipipe": "^0.2.1",
     "readable-stream": "^2.0.4"
-  },
-  "scripts": {
-    "benchmark": "tools/benchmark",
-    "dist": "babel lib --out-dir dist",
-    "lint": "standard",
-    "prepublish": "npm run lint && npm run dist && npm run test",
-    "test": "mocha test --compilers js:babel-core/register",
-    "readme": "tools/readme"
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "ignore": [
-      "dist"
-    ],
-    "globals": [
-      "before",
-      "describe",
-      "it"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   },
   "devDependencies": {
     "babel-cli": "^6.1.2",
@@ -67,5 +49,21 @@
     "help2md": "^1.0.6",
     "mocha": "^2.3.3",
     "standard": "^5.3.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "lib"
+    ],
+    "globals": [
+      "before",
+      "describe",
+      "it"
+    ]
   }
 }
