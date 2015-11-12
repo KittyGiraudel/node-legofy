@@ -1,6 +1,5 @@
 node_modules
 images/benchmark
-lib
 test
 tools
 *.log
