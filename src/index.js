@@ -76,7 +76,7 @@ const render = (opts, src) => {
 }
 
 export default function legofy (opts = {}) {
-  const options = Object.assign(defaultOpts, opts)
+  const options = Object.assign({}, defaultOpts, opts)
   const cat = new PassThrough()
   return duplex(concat(body => render(options, body).pipe(cat)), cat)
 }
