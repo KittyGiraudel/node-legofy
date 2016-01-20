@@ -72,11 +72,15 @@ const render = (opts, src) => {
     }
   }
 
-  return canvas[`${opts.format}Stream`]()
+  return opts.format === 'canvas' ? ctx : canvas[`${opts.format}Stream`]()
 }
 
 export default function legofy (opts = {}) {
   const options = Object.assign({}, defaultOpts, opts)
   const cat = new PassThrough()
   return duplex(concat(body => render(options, body).pipe(cat)), cat)
+}
+
+export function canvas (opts, cb) {
+  return concat(body => cb(render(Object.assign({}, defaultOpts, opts, { format: 'canvas' }), body)))
 }
