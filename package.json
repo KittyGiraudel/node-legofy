@@ -3,14 +3,14 @@
   "version": "0.1.7",
   "description": "Node.js version of Legofy",
   "keywords": ["lego", "legofy"],
-  "homepage": "https://github.com/HugoGiraudel/node-legofy",
+  "homepage": "https://github.com/KittyGiraudel/node-legofy",
   "bugs": {
-    "url": "https://github.com/HugoGiraudel/node-legofy/issues"
+    "url": "https://github.com/KittyGiraudel/node-legofy/issues"
   },
   "license": "MIT",
   "author": {
-    "name": "Hugo Giraudel",
-    "url": "http://hugogiraudel.com"
+    "name": "Kitty Giraudel",
+    "url": "https://kittygiraudel.com"
   },
   "contributors": [
     {
@@ -23,7 +23,7 @@
   "bin": {
     "legofy": "bin/legofy"
   },
-  "repository": "HugoGiraudel/node-legofy",
+  "repository": "KittyGiraudel/node-legofy",
   "scripts": {
     "benchmark": "tools/benchmark",
     "build": "babel src --out-dir lib",
