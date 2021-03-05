@@ -108,5 +108,5 @@ npm run benchmark
 ## Credits
 
 * [Juan Potato](https://github.com/JuanPotato) for the original Python library
-* [Hugo Giraudel](https://twitter.com/KittyGiraudel) for the Node.js version
+* [Kitty Giraudel](https://twitter.com/KittyGiraudel) for the Node.js version
 * [Valérian Galliat](https://twitter.com/valeriangalliat) for the Node.js refactoring and help
