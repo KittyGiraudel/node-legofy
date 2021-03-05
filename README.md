@@ -81,9 +81,9 @@ fs.src('images/*.png')
 
 ## Example
 
-![Initial image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/benchmark/sample-1.jpg)
+![Initial image](https://raw.githubusercontent.com/KittyGiraudel/node-legofy/master/images/benchmark/sample-1.jpg)
 
-![Processed image](https://raw.githubusercontent.com/HugoGiraudel/node-legofy/master/images/benchmark/sample-1.lego.jpg)
+![Processed image](https://raw.githubusercontent.com/KittyGiraudel/node-legofy/master/images/benchmark/sample-1.lego.jpg)
 
 ## Troubleshooting
 
@@ -108,5 +108,5 @@ npm run benchmark
 ## Credits
 
 * [Juan Potato](https://github.com/JuanPotato) for the original Python library
-* [Hugo Giraudel](https://twitter.com/HugoGiraudel) for the Node.js version
+* [Hugo Giraudel](https://twitter.com/KittyGiraudel) for the Node.js version
 * [Valérian Galliat](https://twitter.com/valeriangalliat) for the Node.js refactoring and help
